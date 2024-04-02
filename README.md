@@ -8,17 +8,18 @@ Before running the code, you'll need to install the following dependencies:
 
 ### 1. OpenCV
 
-````bash
+```bash
 pip install opencv-python
+```
 
 ### 2. Ultralytics
 
 ```bash
 pip install Ultralytics
+```
 
 ### 3. cvzone
 
 ```bash
-
 pip install cvzone
-````
+```
