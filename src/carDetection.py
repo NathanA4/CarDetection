@@ -7,7 +7,7 @@ from vidgear.gears import CamGear
 from track import*
 model=YOLO('yolov8s.pt')
 
-stream = CamGear(source='https://www.youtube.com/watch?v=BnkxqF6Y0bs', stream_mode = True, logging=True).start() 
+stream = CamGear(source='https://www.youtube.com/watch?v=DnUFAShZKus', stream_mode = True, logging=True).start() 
 def RGB(event, x, y, flags, param):
     if event == cv2.EVENT_MOUSEMOVE :  
         colorsBGR = [x, y]
@@ -22,11 +22,9 @@ cv2.setMouseCallback('RGB', RGB)
 my_file = open("src/coco.txt", "r")
 data = my_file.read()
 class_list = data.split("\n")
-print(class_list)
+#print(class_list)
 count=0
-
-#track =Tracker()
-#working on it
+track =Tracker()
 
 
 while True:    
@@ -39,13 +37,13 @@ while True:
     frame=cv2.resize(frame,(1020,500))
 
     results=model.predict(frame)
-    print(results)
+ #   print(results)
     a=results[0].boxes.data
     px=pd.DataFrame(a).astype("float")
-    print(px)
+#    print(px)
     list=[]
     for index,row in px.iterrows():
-        print(row)
+#        print(row)
  
         x1=int(row[0])
         y1=int(row[1])
